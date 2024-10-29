@@ -1,26 +1,49 @@
 # Hyde
 
-Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
+Hyde is a brazen two-column [hugo](https://gohugo.io) theme based on the [Jekyll](http://jekyllrb.com) theme of the same name.
+It pairs a prominent sidebar with uncomplicated content.
 
 ![Hyde screenshot](https://f.cloud.github.com/assets/98681/1831228/42af6c6a-7384-11e3-98fb-e0b923ee0468.png)
 
 
 ## Contents
 
-- [Usage](#usage)
+- [Installation](#installation)
 - [Options](#options)
   - [Sidebar menu](#sidebar-menu)
+  - [Sidebar description](#sidebar-description)
   - [Sticky sidebar content](#sticky-sidebar-content)
   - [Themes](#themes)
   - [Reverse layout](#reverse-layout)
-- [Development](#development)
+  - [Disqus](#disqus)
+  - [Google Analytics](#google-analytics)
 - [Author](#author)
+- [Ported by](#ported-by)
 - [License](#license)
 
 
-## Usage
+## Installation
 
-Hyde is a theme built on top of [Poole](https://github.com/poole/poole), which provides a fully furnished Jekyll setup—just download and start the Jekyll server. See [the Poole usage guidelines](https://github.com/poole/poole#usage) for how to install and use Jekyll.
+### Quick Start
+
+To give you a running start this installation puts a fully configured [starter repo](https://github.com/forestryio/hyde-hugo-starter) into your Git account and sets it up in a content manager / CMS. 
+
+_[Forestry](https://forestry.io) Starter-Kit:_
+
+[![Import this project into Forestry](https://assets.forestry.io/import-to-forestry.svg)](https://app.forestry.io/quick-start?repo=forestryio/hyde-hugo-starter&provider=github&engine=hugo&version=0.49)
+
+### Standard Installation
+
+To install Hyde as your default theme, first install this repository in the `themes/` directory:
+
+    $ cd themes/
+    $ git clone https://github.com/spf13/hyde.git
+
+Second, specify `hyde` as your default theme in the `config.toml` file. Just add the line
+
+    theme = "hyde"
+
+at the top of the file.
 
 
 ## Options
@@ -30,21 +53,54 @@ Hyde includes some customizable options, typically applied via classes on the `<
 
 ### Sidebar menu
 
-Create a list of nav links in the sidebar by assigning each Jekyll page the correct layout in the page's [front-matter](http://jekyllrb.com/docs/frontmatter/).
+Create a list of nav links in the sidebar by assigning "menu=main" in the front matter, like so:
 
-```
----
-layout: page
-title: About
----
+**TOML**
+```toml
+theme = "hyde"
+
+[Menus]
+  main = [
+      {Name = "Github", URL = "https://github.com/username/"},
+      {Name = "LinkedIn", URL = "https://www.linkedin.com/in/username/"}
+  ]
 ```
 
-**Why require a specific layout?** Jekyll will return *all* pages, including the `atom.xml`, and with an alphabetical sort order. To ensure the first link is *Home*, we exclude the `index.html` page from this list by specifying the `page` layout.
+**YAML**
+```yaml
+theme: "hyde"
+
+Menus:
+  main:
+    - Name: "Github"
+      URL: "https://github.com/username/"
+    - Name: "LinkedIn"
+      URL: "https://www.linkedin.com/in/username/"
+```
+
+### Sidebar description
+Customise the describe of your page using `description`, like so:
+
+**TOML**
+```toml
+theme = "hyde"
+
+[params]
+  description = "Your custom description"
+```
+
+**YAML**
+```yaml
+theme: "hyde"
+
+params:
+  description = "Your custom description"
+```
 
 
 ### Sticky sidebar content
 
-By default Hyde ships with a sidebar that affixes it's content to the bottom of the sidebar. You can optionally disable this by removing the `.sidebar-sticky` class from the sidebar's `.container`. Sidebar content will then normally flow from top to bottom.
+By default Hyde ships with a sidebar that affixes it's content to the bottom of the sidebar. You can optionally disabled this by removing the `.sidebar-sticky` class from the sidebar's `.container`. Sidebar content will then normally flow from top to bottom.
 
 ```html
 <!-- Default sidebar -->
@@ -73,12 +129,22 @@ There are eight themes available at this time.
 
 ![Hyde theme classes](https://f.cloud.github.com/assets/98681/1817044/e5b0ec06-6f68-11e3-83d7-acd1942797a1.png)
 
-To use a theme, add anyone of the available theme classes to the `<body>` element in the `default.html` layout, like so:
+To use a theme, add the `themeColor` variable under `params`, like so:
 
-```html
-<body class="theme-base-08">
-  ...
-</body>
+**TOML**
+```toml
+theme = "hyde"
+
+[params]
+  themeColor = "theme-base-09"
+```
+
+**YAML**
+```yaml
+theme: "hyde"
+
+params:
+  themeColor: "theme-base-09"
 ```
 
 To create your own theme, look to the Themes section of [included CSS file](https://github.com/poole/hyde/blob/master/public/css/hyde.css). Copy any existing theme (they're only a few lines of CSS), rename it, and change the provided colors.
@@ -87,29 +153,64 @@ To create your own theme, look to the Themes section of [included CSS file](http
 
 ![Hyde with reverse layout](https://f.cloud.github.com/assets/98681/1831230/42b0d3ac-7384-11e3-8d54-2065afd03f9e.png)
 
-Hyde's page orientation can be reversed with a single class.
+To reverse page orientation, add the `layoutReverse` variable under `params`, like so:
 
-```html
-<body class="layout-reverse">
-  ...
-</body>
+**TOML**
+```toml
+theme = "hyde"
+
+[params]
+  layoutReverse = true
 ```
 
+**YAML**
+```yaml
+theme: "hyde"
 
-## Development
+params:
+  layoutReverse: true
+```
 
-Hyde has two branches, but only one is used for active development.
+### Disqus
 
-- `master` for development.  **All pull requests should be submitted against `master`.**
-- `gh-pages` for our hosted site, which includes our analytics tracking code. **Please avoid using this branch.**
+You can optionally enable a comment system powered by Disqus for the posts. Simply add the variable `disqusShortname` to your config file.
 
+**TOML**
+```toml
+disqusShortname = "spf13"
+```
+
+**YAML**
+```yaml
+disqusShortname : spf13
+```
+
+> **Note:** Previous version 1.0 the Disqus shortname had to be defined inside the `[params]` block.
+
+
+## Google Analytics
+
+Google Analytics can be enabled by assigning your tracking code to the `googleAnalytics` variable in the config file:
+
+**TOML**
+```toml
+googleAnalytics = "Your tracking code"
+```
+
+**YAML**
+```yaml
+googleAnalytics: Your tracking code
+```
 
 ## Author
-
 **Mark Otto**
 - <https://github.com/mdo>
 - <https://twitter.com/mdo>
 
+## Ported By
+**Steve Francia**
+- <https://github.com/spf13>
+- <https://twitter.com/spf13>
 
 ## License
 
