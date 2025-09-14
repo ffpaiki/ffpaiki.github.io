@@ -40,25 +40,44 @@ layout: default
 
     <div class="clearfix">{{ content }}</div>
 
+
+    <!-- Research Interest -->
+    {% if page.research_interests and page.research_interests.enabled %}
+    <h2 class="font-weight-bold">
+      Research Interest
+    </h2>
+    <ul>
+      <li>Machine Learning</li>
+      <li>Deep Reinforcement Learning</li>
+      <li>Large Language Model</li>
+      <li>Vision Language Model</li>
+      <li>Convex Optimization</li>
+    </ul>
+    <!-- {% include news.liquid limit=true %} -->
+    {% endif %}
+
+
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
+      <h2 class="font-weight-bold">
+        <a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a>
       </h2>
       {% include news.liquid limit=true %}
     {% endif %}
 
+    
+
     <!-- Latest posts -->
     {% if page.latest_posts and page.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
+      <h2 class="font-weight-bold">
+        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">Latest Posts</a>
       </h2>
       {% include latest_posts.liquid %}
     {% endif %}
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
-      <h2>
+      <h2 class="font-weight-bold">
         <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
       </h2>
       {% include selected_papers.liquid %}
@@ -69,7 +88,7 @@ layout: default
       <div class="social">
         <div class="contact-icons">{% include social.liquid %}</div>
 
-        <div class="contact-note">{{ site.contact_note }}</div>
+        <!-- <div class="contact-note">{{ site.contact_note }}</div> -->
       </div>
     {% endif %}
 

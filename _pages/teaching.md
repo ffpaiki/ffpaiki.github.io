@@ -7,6 +7,14 @@ nav: true
 nav_order: 6
 ---
 
-For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
+### Universitas Papua
+Department of Informatics Engineering
+- [Object Oriented Programming](asdasd)
+- [Component Based Software Engineering](asdasd)
+- [Web Services](asdasd)
 
-Organize your courses by years, topics, or universities, however you like!
+
+
+### Northeastern University
+Department of Electrical and Computer Engineering
+- [EECE 2160 Embedded System and Robotics](asdasd)

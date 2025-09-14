@@ -4,17 +4,17 @@
 
 title: blank # the website title (if blank, full name will be used instead)
 first_name: Fridolin
-middle_name: F
+middle_name: F.
 last_name: Paiki
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  Feel free to reach out for collaboration opportunities or to discuss research interests!
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+  PhD Candidate in Electrical and Computer Engineering at Northeastern University, specializing in Machine Learning, Deep Learning, and System Identification.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
   Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
-keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
+keywords: machine-learning, deep-learning, system-identification, phd-candidate, northeastern-university, research # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
@@ -88,8 +88,8 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: al-folio # blog_name will be displayed in your blog page
-blog_description: a simple whitespace theme for academics
+blog_name: Fridolin's Blog # blog_name will be displayed in your blog page
+blog_description: Thoughts on machine learning, research, and technology
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
@@ -265,8 +265,8 @@ display_categories: ["external-services"] # these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Paiki]
+  first_name: [Fridolin, F.]
 
   style: apa
   locale: en
