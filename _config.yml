@@ -13,18 +13,18 @@
 title: Fridolin Paiki
 
 # Your name to show in the footer
-author: Some Person
+author: Fridolin Paiki
 
 ###############################################
 # --- List of links in the navigation bar --- #
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://deanattali.com"
+    About Me: "aboutme"
+    Resources:
+        - Beautiful Jekyll: "https://beautifuljekyll.com"
+        - Learn markdown: "https://www.markdowntutorial.com/"
+    Author's home: "https://deanattali.com"
 
 ################
 # --- Logo --- #
@@ -41,7 +41,6 @@ round-avatar: true
 # then specify the following parameter
 #title-img: /path/to/image
 
-
 #####################################
 # --- Footer social media links --- #
 #####################################
@@ -50,14 +49,14 @@ round-avatar: true
 # You can change the order that they show up on the page by changing the order here.
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
-  email: "someone@example.com"
-  rss: true  # remove this line if you don't want to show an RSS link at the bottom
-  facebook: deanattali
-  github: daattali
-  twitter: daattali
-  patreon: DeanAttali
-  youtube: "@daattali"
-  whatsapp: 15551212
+    email: "someone@example.com"
+    rss: true # remove this line if you don't want to show an RSS link at the bottom
+    facebook: deanattali
+    github: daattali
+    twitter: daattali
+    patreon: DeanAttali
+    youtube: "@daattali"
+    whatsapp: 15551212
 #  medium: yourname
 #  reddit: yourname or r/yoursubreddit
 #  linkedin: daattali
@@ -94,11 +93,11 @@ rss-description: This website is a virtual proof that I'm awesome
 
 # Select which social network share links to show in posts
 share-links-active:
-  twitter: true
-  facebook: true
-  linkedin: true
-  vk: false
-  reddit: false
+    twitter: true
+    facebook: true
+    linkedin: true
+    vk: false
+    reddit: false
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
@@ -267,39 +266,36 @@ permalink: /:year-:month-:day-:title/
 paginate: 5
 
 kramdown:
-  input: GFM
+    input: GFM
 
 # Default YAML values (more information on Jekyll's site)
 defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      comments: true  # add comments to all blog posts
-      social-share: true # add social media sharing buttons to all blog posts
-  -
-    scope:
-      path: "" # any file that's not a post will be a "page" layout by default
-    values:
-      layout: "page"
+    - scope:
+          path: ""
+          type: "posts"
+      values:
+          layout: "post"
+          comments: true # add comments to all blog posts
+          social-share: true # add social media sharing buttons to all blog posts
+    - scope:
+          path: "" # any file that's not a post will be a "page" layout by default
+      values:
+          layout: "page"
 
 # Exclude these files from production site
 exclude:
-  - CHANGELOG.md
-  - CNAME
-  - Gemfile
-  - Gemfile.lock
-  - LICENSE
-  - README.md
-  - screenshot.png
-  - docs/
+    - CHANGELOG.md
+    - CNAME
+    - Gemfile
+    - Gemfile.lock
+    - LICENSE
+    - README.md
+    - screenshot.png
+    - docs/
 
 plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-
+    - jekyll-paginate
+    - jekyll-sitemap
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
 
