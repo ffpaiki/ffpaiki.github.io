@@ -50,8 +50,9 @@ body > main {
 }
 
 main .container-md {
-  line-height: 2.2;
+  line-height: 2.2 !important;
 }
+
 p {
   line-height: 2.2;
   margin: 1.875rem 0;
