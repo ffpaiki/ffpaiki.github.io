@@ -49,7 +49,7 @@ body > main {
   flex: 1;
 }
 
-main .container-md {
+.container-md {
   line-height: 2.2 !important;
 }
 
