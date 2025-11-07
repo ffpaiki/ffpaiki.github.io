@@ -48,6 +48,10 @@ body {
 body > main {
   flex: 1;
 }
+
+main .container-md {
+  line-height: 2.2;
+}
 p {
   line-height: 2.2;
   margin: 1.875rem 0;
