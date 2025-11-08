@@ -4,6 +4,92 @@ layout: page
 
 {{ content }}
 
+<h1>Research Interests</h1>
+<ul>
+  <li>Machine Learning</li>
+  <li>Natural Language Processing</li>
+  <li>Reinforcement Learning</li>
+  <li>Explainable AI</li>
+</ul>
+
+<h1>Work Experiences</h1>
+
+<ul class="timeline-list">
+  {% assign timeline_entries = site.timeline | sort: 'date' | reverse %}
+  {% for entry in timeline_entries %}
+    <li class="timeline-item">
+      <div class="timeline-logo">
+        {% if entry.logo %}
+          <img src="{{ entry.logo }}" alt="{{ entry.title }} logo" />
+        {% else %}
+          <img src="https://img.icons8.com/color/96/000000/calendar.png" alt="Timeline icon" />
+        {% endif %}
+      </div>
+      <div class="timeline-content">
+        <div class="timeline-description">
+          <strong>{{ entry.when | markdownify }}</strong>
+          {{ entry.content | markdownify }}
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+
+<style>
+h1{
+  margin-top: 3rem;
+}
+.timeline-list {
+  list-style: none;
+  padding: 0;
+  /* margin: 2rem 0 0; */
+}
+
+.timeline-item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px dotted rgba(140, 47, 57, 0.4);
+}
+
+.timeline-item:last-child {
+  border-bottom: none;
+}
+
+.timeline-logo img {
+  width: 120px;
+  height: auto;
+  margin-right: 1rem;
+}
+
+.timeline-content {
+  flex: 1;
+}
+
+.timeline-year {
+  margin: 0;
+  font-weight: 600;
+}
+
+.timeline-title {
+  display: block;
+  margin: 0.15rem 0 0.35rem;
+}
+
+.timeline-description {
+  margin: 0 0;
+  padding-bottom: 0px;
+}
+
+.timeline-description p {
+  margin: 0 0;
+  padding-bottom: 0px;
+  line-height: 1.6;
+}
+</style>
+
+
 {% assign posts = paginator.posts | default: site.posts %}
 
 <!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->

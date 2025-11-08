@@ -21,10 +21,11 @@ author: Fridolin Paiki
 
 navbar-links:
     About Me: "aboutme"
-    Resources:
-        - Beautiful Jekyll: "https://beautifuljekyll.com"
-        - Learn markdown: "https://www.markdowntutorial.com/"
-    Author's home: "https://deanattali.com"
+    Timeline: "timeline"
+    # Resources:
+    #     - Beautiful Jekyll: "https://beautifuljekyll.com"
+    #     - Learn markdown: "https://www.markdowntutorial.com/"
+    # Author's home: "https://deanattali.com"
 
 ################
 # --- Logo --- #
@@ -32,7 +33,7 @@ navbar-links:
 
 # Image to show in the navigation bar - works best with a square image
 # Remove this parameter if you don't want an image in the navbar
-avatar: "/assets/img/avatar-icon.png"
+avatar: "/assets/img/img.jpg"
 
 # By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
 round-avatar: true
@@ -143,7 +144,7 @@ navbar-col: "#8c2f39"
 navbar-text-col: "#eeeeee"
 navbar-border-col: "#DDDDDD"
 footer-col: "#EAEAEA"
-footer-text-col: "#777777"
+footer-text-col: "#555555"
 footer-link-col: "#404040"
 footer-hover-col: "#0085A1"
 
@@ -257,6 +258,11 @@ date_format: "%B %-d, %Y"
 #################################################################################
 # --- You don't need to touch anything below here (but you can if you want) --- #
 #################################################################################
+
+# Collections
+collections:
+    timeline:
+        output: false
 
 # Output options (more information on Jekyll's site)
 timezone: "America/Toronto"
