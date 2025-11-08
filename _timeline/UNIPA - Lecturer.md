@@ -5,4 +5,4 @@ when: Aug 2014 - Aug 2023
 logo: https://cdn.prod.website-files.com/66a1bd0282e5dc7d1c9f618c/66a1bd0282e5dc7d1c9f61f4_Logo%20UNIPA%20Warna-01.webp
 ---
 
-Lecturer and Researcher - Informatics Engineering Department, Faculty of Engineering, Universitas Papua
+Assistant Professor - Informatics Engineering Department, Faculty of Engineering, Universitas Papua
