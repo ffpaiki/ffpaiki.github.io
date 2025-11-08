@@ -20,8 +20,8 @@ author: Fridolin Paiki
 ###############################################
 
 navbar-links:
-    About Me: "aboutme"
-    Timeline: "timeline"
+    # About Me: "aboutme"
+    # Timeline: "timeline"
     # Resources:
     #     - Beautiful Jekyll: "https://beautifuljekyll.com"
     #     - Learn markdown: "https://www.markdowntutorial.com/"
@@ -51,7 +51,7 @@ round-avatar: true
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
     email: "paiki.f@northeastern.edu"
-    rss: true # remove this line if you don't want to show an RSS link at the bottom
+    # rss: true # remove this line if you don't want to show an RSS link at the bottom
     facebook: fridolinpaiki
     github: ffpaiki
     twitter: fridolinpaiki
