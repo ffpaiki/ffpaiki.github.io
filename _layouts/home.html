@@ -15,35 +15,39 @@ layout: page
 <h1>Work Experiences</h1>
 
 <ul class="timeline-list">
-  {% assign timeline_entries = site.timeline | sort: 'date' | reverse %}
-  {% for entry in timeline_entries %}
-    <li class="timeline-item">
-      <div class="timeline-logo">
-        {% if entry.logo %}
-          <img src="{{ entry.logo }}" alt="{{ entry.title }} logo" />
-        {% else %}
-          <img src="https://img.icons8.com/color/96/000000/calendar.png" alt="Timeline icon" />
-        {% endif %}
-      </div>
-      <div class="timeline-content">
-        <div class="timeline-description">
-          <strong>{{ entry.when | markdownify }}</strong>
-          {{ entry.content | markdownify }}
+  {% if site.timeline.size %}
+    {% assign timeline_entries = site.timeline | sort: 'date' | reverse %}
+    {% for entry in timeline_entries %}
+      <li class="timeline-item">
+        <div class="timeline-logo">
+          {% if entry.logo %}
+            <img src="{{ entry.logo }}" alt="{{ entry.title }} logo" />
+          {% else %}
+            <img src="https://img.icons8.com/color/96/000000/calendar.png" alt="Timeline icon" />
+          {% endif %}
         </div>
-      </div>
-    </li>
-  {% endfor %}
+        <div class="timeline-content">
+          <div class="timeline-description">
+            <strong>{{ entry.when | markdownify }}</strong>
+            {{ entry.content | markdownify }}
+          </div>
+        </div>
+      </li>
+    {% endfor %}
+  {% endif %}
 </ul>
 
 <style>
 h1{
   margin-top: 3rem;
 }
-.timeline-list {
+.timeline-list, .news-list {
   list-style: none;
   padding: 0;
   /* margin: 2rem 0 0; */
 }
+
+
 
 .timeline-item {
   display: flex;
@@ -87,6 +91,43 @@ h1{
   padding-bottom: 0px;
   line-height: 1.6;
 }
+</style>
+
+<h1>News</h1>
+<ul class="news-list">
+  {% if site.news.size %}
+    {% assign news_entries = site.news | sort: 'date' | reverse %}
+
+    {% for entry in news_entries %}
+      <li class="news-item">
+        <div class="news-date">
+            [{{ entry.date | date: "%b %-d, %Y" }}]
+        </div>
+        <div class="news-content">
+          {{ entry.content | markdownify }}
+        </div>
+      </li>
+    {% endfor %}
+  {% endif %}
+</ul>
+
+<style>
+
+  .news-item {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    padding: 3px 0;
+    /* border-bottom: 1px dotted rgba(140, 47, 57, 0.4); */
+  }
+  .news-date {
+    text-align: right;
+    width: 125px;
+  }
+
+  .news-content p {
+    margin: 0 0 !important;
+  }
 </style>
 
 

@@ -20,6 +20,7 @@ author: Fridolin Paiki
 ###############################################
 
 navbar-links:
+    Resume:
     # About Me: "aboutme"
     # Timeline: "timeline"
     # Resources:
@@ -262,6 +263,8 @@ date_format: "%B %-d, %Y"
 # Collections
 collections:
     timeline:
+        output: false
+    news:
         output: false
 
 # Output options (more information on Jekyll's site)
