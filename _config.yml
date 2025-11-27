@@ -20,7 +20,7 @@ author: Fridolin Paiki
 ###############################################
 
 navbar-links:
-    Resume:
+    Resume: "/assets/Fridolin_Paiki_Resume.pdf"
     # About Me: "aboutme"
     # Timeline: "timeline"
     # Resources:
