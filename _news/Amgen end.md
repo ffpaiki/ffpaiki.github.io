@@ -2,4 +2,4 @@
 date: 2025-12-14
 ---
 
-Started working as AS Development Intern at Amgen
+Finished working as Attribute Science Process Development Intern at Amgen
