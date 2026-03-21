@@ -53,13 +53,13 @@ round-avatar: true
 social-network-links:
     email: "paiki.f@northeastern.edu"
     # rss: true # remove this line if you don't want to show an RSS link at the bottom
-    facebook: fridolinpaiki
+    # facebook: fridolinpaiki
     github: ffpaiki
-    twitter: fridolinpaiki
+    # twitter: fridolinpaiki
     # patreon: DeanAttali
     # youtube: "@daattali"
-    whatsapp: +16172766546
-#  medium: yourname
+    # whatsapp: +16172766546
+    medium: fridolinpaiki
 #  reddit: yourname or r/yoursubreddit
     linkedin: fridolinpaiki
 #  xing: yourname
