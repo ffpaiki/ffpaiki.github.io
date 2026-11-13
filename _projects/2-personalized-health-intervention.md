@@ -1,14 +1,16 @@
 ---
-title: "Personalized Health Behavior Intervention"
+title: "Personalized Physical Activity Intervention & Epidemic Time-Series Modeling"
 order: 2
-status: "Ongoing PhD Research"
-period: "2024 – Present"
+status: "PhD Research"
+period: "Sep 2023 – Present"
 institution: "Northeastern University · Robust Systems Lab"
 tags:
-  - "Reinforcement Learning"
-  - "Sequential Decision Making"
-  - "Personalized Healthcare"
-  - "Behavioral Modeling"
+  - "Python"
+  - "PyTorch"
+  - "BoTorch"
+  - "scikit-learn"
+  - "LPV / MPC / MILP"
+  - "MLP Controllers"
 ---
 
-Designing adaptive sequential decision-making and reinforcement learning algorithms to optimize just-in-time personalized health interventions. By modeling individual behavioral dynamics under uncertainty, the framework aims to maximize long-term adherence and positive health outcomes while respecting safety and user-burden constraints.
+Developing an ML-driven behavioral recommendation and intervention system for patients with physical conditions using wearable and smartphone activity streams, combining LPV system identification, MPC/MILP optimization frameworks, and MLP controllers. Also developing Bayesian parameter optimization pipelines over time-series health data for the **SIDARTHE** epidemic model using **PyTorch** and **BoTorch**.

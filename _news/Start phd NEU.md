@@ -2,4 +2,4 @@
 date: 2023-09-06
 ---
 
-Started PhD journey at Northeastern University
+Started Ph.D. in Computer Engineering (**Machine Learning focus**) at **Northeastern University**, advised by Prof. Mario Sznaier.

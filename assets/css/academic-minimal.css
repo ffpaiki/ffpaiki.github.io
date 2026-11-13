@@ -381,8 +381,40 @@ html[data-theme="dark"] .theme-icon-moon {
 .hero-subtitle {
   font-size: 1.05rem;
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   font-weight: 400;
+}
+
+/* --- Availability Banner --- */
+.availability-banner {
+  background: var(--bg-surface);
+  border: 1px solid var(--accent-border);
+  border-left: 3.5px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.35rem;
+  box-shadow: var(--shadow-xs);
+}
+
+.availability-title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.availability-title i {
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+
+.availability-sub {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  padding-left: 1.4rem;
 }
 
 .hero-subtitle a,
@@ -746,6 +778,12 @@ html[data-theme="dark"] .theme-icon-moon {
   color: var(--text-muted);
 }
 
+.pub-type-prep {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+}
+
 .pub-title {
   font-size: 1.04rem;
   font-weight: 600;
@@ -1027,6 +1065,62 @@ html[data-theme="dark"] .theme-icon-moon {
   font-size: 0.84rem;
   color: var(--text-muted);
   margin: 0;
+}
+
+/* --- Technical Stack Top Grid & Teaching --- */
+.skills-grid-top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.skill-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.25rem;
+  box-shadow: var(--shadow-xs);
+}
+
+.skill-card-title {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.teaching-compact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.teaching-row {
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.teaching-row:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.teaching-row-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+}
+
+.teaching-row-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
 }
 
 .skills-block {

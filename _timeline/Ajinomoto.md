@@ -1,12 +1,13 @@
 ---
-date: 2012-02-01
-when: "Apr 2012 – Mar 2013"
-role: "IT Project Supervisor — IT Architect Section"
-organization: "PT Ajinomoto Indonesia"
+date: 2012-03-01
+when: "Mar 2012 – Mar 2013"
+role: "IT Architect Consultant"
+organization: "PT Ajinomoto Indonesia, Tbk."
 location: "Jakarta, Indonesia"
 logo: "/assets/img/ajinomoto.png"
 highlights:
-  - "Led a team of 4 engineers delivering supply chain and enterprise IT systems (Web Daily Monitoring, Handy Terminal System, OLAP, HULFT, and Enterprise Web Portal) using .NET, SQL Server BI (SSIS/SSRS), SAP, Oracle BI, and Java."
+  - "Managed and delivered data-driven applications for the sales and distribution division, including OLAP analytics and the Web Daily Monitoring System."
+  - "Rolled out 4 executive dashboards and 10+ operational reports using SSIS and Oracle BI, improving supply chain visibility by 40%."
 ---
 
-IT Project Supervisor — IT Architect Section, PT Ajinomoto Indonesia
+IT Architect Consultant — PT Ajinomoto Indonesia, Tbk.

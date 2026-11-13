@@ -1,14 +1,15 @@
 ---
-title: "Automated Assay Report Standardization & Analytics Pipeline"
+title: "AI-Automated Assay Method Report Generator & Analytics Platform"
 order: 3
-status: "Industry R&D"
+status: "Industry R&D · Amgen"
 period: "May 2025 – Dec 2025"
-institution: "Amgen Massachusetts · Attribute Sciences Process Development"
+institution: "Amgen Massachusetts · Process Development"
 tags:
-  - "Process Automation"
-  - "Data Pipelines"
   - "Python"
+  - "Plotly Dash"
+  - "AI Agents"
+  - "Data Pipelines"
   - "Biopharma Analytics"
 ---
 
-Engineered a modular system to standardize and automate frequent assay report generation in biopharmaceutical process development. Streamlined end-to-end data ingestion, validation, and customizable report synthesis, improving overall report generation efficiency by 20–30%.
+Explored an AI agent-based architecture for automated Method Report Generation and designed a production **Python (Plotly Dash)** platform transforming raw assay outputs into structured datasets with interactive summaries across 7 assay modalities (`CEX`, `SEC`, `rCE`, `SE-UHPLC`, `HIC`, `nrCE`, `iCIEF`). Reduced end-to-end reporting effort by **85–95%** (from **3 days to ~1 minute**) via parameterized templates and automated data preparation.

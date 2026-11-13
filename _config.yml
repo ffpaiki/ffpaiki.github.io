@@ -1,19 +1,20 @@
 ###########################################################
-### Modern Minimalist Academic Portfolio — Fridolin Paiki
+### Modern Minimalist Academic & ML Portfolio — Fridolin Paiki
 ### Built on Jekyll & GitHub Pages
 ###########################################################
 
 # --- Site Identity --- #
 title: Fridolin Paiki
 author: Fridolin Paiki
-subtitle: "PhD Candidate in Computer Engineering · Northeastern University"
-description: "Academic portfolio of Fridolin Febrianto Paiki, PhD Candidate in Computer Engineering at Northeastern University advised by Prof. Mario Sznaier. Researching Machine Learning, Natural Language Processing, Reinforcement Learning, and Explainable AI."
+subtitle: "PhD Candidate in Machine Learning · Northeastern University"
+description: "Fridolin Paiki — PhD Candidate in Machine Learning at Northeastern University with 10+ years of software and data engineering experience. Specializing in Health AI, time-series modeling, LLM evaluation & explainability, and end-to-end ML deployment."
 
 # --- Profile & Academic Metadata --- #
 profile:
-  name: "Fridolin Febrianto Paiki"
+  name: "Fridolin Paiki"
   short_name: "Fridolin Paiki"
-  role: "PhD Candidate in Computer Engineering"
+  role: "PhD Candidate in Machine Learning"
+  department: "Department of Electrical & Computer Engineering"
   institution: "Northeastern University"
   institution_url: "https://coe.northeastern.edu/"
   lab: "Robust Systems Lab"
@@ -21,24 +22,26 @@ profile:
   advisor_url: "https://coe.northeastern.edu/people/sznaier-mario/"
   location: "Boston, MA"
   email: "paiki.f@northeastern.edu"
-  cv_url: "/assets/Fridolin_Paiki_Resume.pdf"
+  cv_url: "/assets/Fridolin_Paiki_Resume.pdf?v=202611"
   avatar: "/assets/img/img.jpg"
+  availability_headline: "Available for Research & ML Engineering Internships (Spring/Summer/Fall 2027) · Full-Time from May 2028"
+  work_authorization: "J-1 student eligible for Academic Training (No employer sponsorship required for internship)"
   research_interests:
-    - "Machine Learning"
-    - "Natural Language Processing"
-    - "Reinforcement Learning"
-    - "Explainable AI (XAI)"
-    - "Multimodal Healthcare AI"
+    - "LLM Evaluation & Explainability"
+    - "Health AI & Wearable Time-Series"
+    - "End-to-End ML Pipelines (vLLM / PyTorch)"
+    - "Bayesian & Constrained Optimization"
+    - "AI Agents & Production Analytics"
 
 # --- Navigation Bar Links (Single-Page Smooth Anchor Navigation + CV) --- #
 navbar-links:
   About: "#about"
-  News: "#news"
   Research: "#research"
-  Publications: "#publications"
   Experience: "#experience"
-  Education: "#education"
-  CV: "/assets/Fridolin_Paiki_Resume.pdf"
+  Publications: "#publications"
+  Skills & Education: "#education"
+  News: "#news"
+  CV: "/assets/Fridolin_Paiki_Resume.pdf?v=202611"
 
 # --- Avatar --- #
 avatar: "/assets/img/img.jpg"
@@ -52,7 +55,7 @@ social-network-links:
   linkedin: "fridolinpaiki"
   medium: "fridolinpaiki"
 
-rss-description: "Fridolin Paiki — PhD Researcher in Machine Learning, NLP, and Reinforcement Learning at Northeastern University."
+rss-description: "Fridolin Paiki — PhD Researcher in Machine Learning, Health AI, and LLM Explainability at Northeastern University."
 
 # --- General Options --- #
 share-links-active:
@@ -69,7 +72,7 @@ feed_show_tags: true
 post_search: false
 edit_page_button: false
 navbar-var-length: false
-keywords: "Fridolin Paiki, Fridolin Febrianto Paiki, Northeastern University, PhD Candidate, Machine Learning, Reinforcement Learning, Natural Language Processing, Explainable AI, Mario Sznaier"
+keywords: "Fridolin Paiki, Machine Learning Engineer, Forward Deployed Engineer, PhD Candidate Machine Learning, Northeastern University, Health AI, LLM Evaluation, vLLM, PyTorch, NNSight, Time-Series Modeling, Mario Sznaier"
 
 # --- Refined Minimalist Academic Palette (Fallback for legacy pages) --- #
 page-col: "#FAFAFA"
