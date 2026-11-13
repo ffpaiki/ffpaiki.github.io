@@ -1,259 +1,523 @@
 ---
-layout: page
+layout: base
 ---
 
-{{ content }}
+<main class="portfolio-main">
+  <!-- ================= HERO / BIO SECTION ================= -->
+  <section id="about" class="portfolio-section hero-section">
+    <div class="portfolio-container">
+      <div class="hero-grid">
+        <!-- Main Bio Column -->
+        <div class="hero-content">
+          <div class="affiliation-pill">
+            <span class="status-dot"></span>
+            <span>{{ site.profile.role | default: "PhD Candidate" }} &middot; {{ site.profile.institution | default: "Northeastern University" }}</span>
+          </div>
 
-<h1>Research Interests</h1>
-<ul>
-  <li>Machine Learning</li>
-  <li>Natural Language Processing</li>
-  <li>Reinforcement Learning</li>
-  <li>Explainable AI</li>
-</ul>
+          <h1 class="hero-title">{{ site.profile.name | default: site.title }}</h1>
 
-<h1>Selected Projects</h1>
-<ul>
-  <li>Explainability in Multimodal LLM Health Prediction</li>
-  <li>Personalized Health Behavior Intervention</li>
-</ul>
+          <p class="hero-subtitle">
+            Department of Electrical &amp; Computer Engineering,
+            <a href="{{ site.profile.institution_url | default: 'https://coe.northeastern.edu/' }}" target="_blank" rel="noopener">Northeastern University</a>
+            &middot; Advised by
+            <a href="{{ site.profile.advisor_url | default: 'https://coe.northeastern.edu/people/sznaier-mario/' }}" target="_blank" rel="noopener">{{ site.profile.advisor | default: "Prof. Mario Sznaier" }}</a>
+          </p>
 
-<h1>Work Experiences</h1>
+          <div class="hero-bio">
+            {{ content | markdownify }}
+          </div>
 
-<ul class="timeline-list">
-  {% if site.timeline.size %}
-    {% assign timeline_entries = site.timeline | sort: 'date' | reverse %}
-    {% for entry in timeline_entries %}
-      <li class="timeline-item">
-        <div class="timeline-logo">
-          {% if entry.logo %}
-            <img src="{{ entry.logo }}" alt="{{ entry.title }} logo" />
-          {% else %}
-            <img src="https://img.icons8.com/color/96/000000/calendar.png" alt="Timeline icon" />
+          {% if site.profile.research_interests %}
+          <div class="research-interests-block">
+            <h2 class="eyebrow-heading">Research Interests</h2>
+            <div class="interest-tags">
+              {% for interest in site.profile.research_interests %}
+                <span class="interest-pill">{{ interest }}</span>
+              {% endfor %}
+            </div>
+          </div>
           {% endif %}
         </div>
-        <div class="timeline-content">
-          <div class="timeline-description">
-            <strong>{{ entry.when | markdownify }}</strong>
+
+        <!-- Profile Card Column -->
+        <aside class="hero-sidebar" aria-label="Profile & Contact">
+          <div class="profile-card">
+            <div class="profile-avatar-wrapper">
+              <img
+                src="{{ site.profile.avatar | default: site.avatar | relative_url }}"
+                alt="Portrait of {{ site.profile.name | default: site.title }}"
+                class="profile-avatar"
+              />
+            </div>
+
+            <div class="profile-meta">
+              <div class="profile-meta-row">
+                <i class="fas fa-university" aria-hidden="true"></i>
+                <span>Northeastern University</span>
+              </div>
+              <div class="profile-meta-row">
+                <i class="fas fa-location-dot" aria-hidden="true"></i>
+                <span>{{ site.profile.location | default: "Boston, MA" }}</span>
+              </div>
+              {% if site.social-network-links.email %}
+              <div class="profile-meta-row">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+                <a href="mailto:{{ site.social-network-links.email }}">{{ site.social-network-links.email }}</a>
+              </div>
+              {% endif %}
+            </div>
+
+            <div class="profile-actions">
+              <a href="{{ site.profile.cv_url | default: '/assets/Fridolin_Paiki_Resume.pdf' | relative_url }}" class="btn-primary-academic" target="_blank" rel="noopener">
+                <i class="far fa-file-lines" aria-hidden="true"></i>
+                <span>Curriculum Vitae (PDF)</span>
+              </a>
+
+              <div class="social-icon-bar">
+                {% if site.social-network-links.google-scholar %}
+                <a href="{{ site.social-network-links.google-scholar }}" target="_blank" rel="noopener" class="social-pill" title="Google Scholar">
+                  <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                  <span>Scholar</span>
+                </a>
+                {% endif %}
+                {% if site.social-network-links.github %}
+                <a href="https://github.com/{{ site.social-network-links.github }}" target="_blank" rel="noopener" class="social-pill" title="GitHub">
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                  <span>GitHub</span>
+                </a>
+                {% endif %}
+                {% if site.social-network-links.linkedin %}
+                <a href="https://linkedin.com/in/{{ site.social-network-links.linkedin }}" target="_blank" rel="noopener" class="social-pill" title="LinkedIn">
+                  <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                  <span>LinkedIn</span>
+                </a>
+                {% endif %}
+                {% if site.social-network-links.medium %}
+                <a href="https://medium.com/@{{ site.social-network-links.medium }}" target="_blank" rel="noopener" class="social-pill" title="Medium">
+                  <i class="fab fa-medium-m" aria-hidden="true"></i>
+                  <span>Medium</span>
+                </a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NEWS / UPDATES SECTION ================= -->
+  <section id="news" class="portfolio-section">
+    <div class="portfolio-container">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker">Milestones</span>
+          <h2 class="section-title">Recent News</h2>
+        </div>
+      </div>
+
+      {% if site.news.size > 0 %}
+      {% assign news_entries = site.news | sort: 'date' | reverse %}
+      <div class="news-feed">
+        {% for entry in news_entries %}
+        <div class="news-row">
+          <time class="news-date-badge" datetime="{{ entry.date | date_to_xmlschema }}">
+            {{ entry.date | date: "%b %Y" }}
+          </time>
+          <div class="news-body">
             {{ entry.content | markdownify }}
           </div>
         </div>
-      </li>
-    {% endfor %}
-  {% endif %}
-</ul>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </section>
 
-<style>
-h1{
-  margin-top: 3rem;
-}
-.timeline-list, .news-list {
-  list-style: none;
-  padding: 0;
-  /* margin: 2rem 0 0; */
-}
-
-
-
-.timeline-item {
-  display: flex;
-  gap: 1.25rem;
-  align-items: center;
-  padding: 1rem 0;
-  border-bottom: 1px dotted rgba(140, 47, 57, 0.4);
-}
-
-.timeline-item:last-child {
-  border-bottom: none;
-}
-
-.timeline-logo img {
-  width: 80px;
-  height: auto;
-  margin-right: 1rem;
-}
-
-.timeline-content {
-  flex: 1;
-}
-
-.timeline-year {
-  margin: 0;
-  font-weight: 600;
-}
-
-.timeline-title {
-  display: block;
-  margin: 0.15rem 0 0.35rem;
-}
-
-.timeline-description {
-  margin: 0 0;
-  padding-bottom: 0px;
-}
-
-.timeline-description p {
-  margin: 0 0;
-  padding-bottom: 0px;
-  line-height: 1.6;
-}
-</style>
-
-<h1>News</h1>
-<ul class="news-list">
-  {% if site.news.size %}
-    {% assign news_entries = site.news | sort: 'date' | reverse %}
-
-    {% for entry in news_entries %}
-      <li class="news-item">
-        <div class="news-date">
-            [{{ entry.date | date: "%b %-d, %Y" }}]
+  <!-- ================= RESEARCH PROJECTS SECTION ================= -->
+  <section id="research" class="portfolio-section">
+    <div class="portfolio-container">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker">Current &amp; Applied Work</span>
+          <h2 class="section-title">Research &amp; Selected Projects</h2>
         </div>
-        <div class="news-content">
-          {{ entry.content | markdownify }}
-        </div>
-      </li>
-    {% endfor %}
-  {% endif %}
-</ul>
+      </div>
 
-<style>
+      {% if site.projects.size > 0 %}
+      {% assign project_entries = site.projects | sort: 'order' %}
+      <div class="projects-grid">
+        {% for project in project_entries %}
+        <article class="project-card">
+          <div class="project-card-top">
+            <div class="project-meta-row">
+              {% if project.status %}
+              <span class="project-status-badge">{{ project.status }}</span>
+              {% endif %}
+              {% if project.period %}
+              <span class="project-period">{{ project.period }}</span>
+              {% endif %}
+            </div>
+            <h3 class="project-title">{{ project.title }}</h3>
+            {% if project.institution %}
+            <p class="project-institution">{{ project.institution }}</p>
+            {% endif %}
+            <div class="project-description">
+              {{ project.content | markdownify }}
+            </div>
+          </div>
 
-  .news-item {
-    display: flex;
-    gap: 1.25rem;
-    align-items: top;
-    padding: 3px 0;
-    /* border-bottom: 1px dotted rgba(140, 47, 57, 0.4); */
-  }
-  .news-date {
-    text-align: right;
-    width: 20%;
-  }
-
-  .news-content {
-    width: 80%;
-  }
-
-  .news-content p {
-    margin: 0 0 !important;
-  }
-</style>
-
-
-{% assign posts = paginator.posts | default: site.posts %}
-
-<!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
-<ul class="posts-list list-unstyled" role="list">
-  {% for post in posts %}
-  <li class="post-preview">
-    <article>
-
-      {%- capture thumbnail -%}
-        {% if post.thumbnail-img %}
-          {{ post.thumbnail-img }}
-        {% elsif post.cover-img %}
-          {% if post.cover-img.first %}
-            {{ post.cover-img[0].first.first }}
-          {% else %}
-            {{ post.cover-img }}
+          {% if project.tags %}
+          <div class="project-tags">
+            {% for tag in project.tags %}
+              <span class="project-tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
           {% endif %}
-        {% else %}
-        {% endif %}
-      {% endcapture %}
-      {% assign thumbnail=thumbnail | strip %}
-
-      {% if site.feed_show_excerpt == false %}
-      {% if thumbnail != "" %}
-      <div class="post-image post-image-normal">
-        <a href="{{ post.url | absolute_url }}" aria-label="Thumbnail">
-          <img src="{{ thumbnail | absolute_url }}" alt="Post thumbnail">
-        </a>
+        </article>
+        {% endfor %}
       </div>
       {% endif %}
-      {% endif %}
+    </div>
+  </section>
 
-      <a href="{{ post.url | absolute_url }}">
-        <h2 class="post-title">{{ post.title | strip_html }}</h2>
-
-        {% if post.subtitle %}
-          <h3 class="post-subtitle">
-          {{ post.subtitle | strip_html }}
-          </h3>
-        {% endif %}
-      </a>
-
-      {% if post.author %}
-        <span>By <strong>{{ post.author | strip_html }}</strong></span>
-      {% endif %}
-      <p class="post-meta">
-        {% assign date_format = site.date_format | default: "%B %-d, %Y" %}
-        Posted on {{ post.date | date: date_format }}
-      </p>
-
-      {% if thumbnail != "" %}
-      <div class="post-image post-image-small">
-        <a href="{{ post.url | absolute_url }}" aria-label="Thumbnail">
-          <img src="{{ thumbnail | absolute_url }}" alt="Post thumbnail">
+  <!-- ================= PUBLICATIONS SECTION ================= -->
+  <section id="publications" class="portfolio-section">
+    <div class="portfolio-container">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker">Academic Output</span>
+          <h2 class="section-title">Publications &amp; Proceedings</h2>
+        </div>
+        {% if site.social-network-links.google-scholar %}
+        <a href="{{ site.social-network-links.google-scholar }}" target="_blank" rel="noopener" class="section-header-link">
+          <span>Full Google Scholar Profile</span>
+          <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
         </a>
-      </div>
-      {% endif %}
-
-      {% unless site.feed_show_excerpt == false %}
-      {% if thumbnail != "" %}
-      <div class="post-image post-image-short">
-        <a href="{{ post.url | absolute_url }}" aria-label="Thumbnail">
-          <img src="{{ thumbnail | absolute_url }}" alt="Post thumbnail">
-        </a>
-      </div>
-      {% endif %}
-
-      <div class="post-entry">
-        {% assign excerpt_length = site.excerpt_length | default: 50 %}
-        {{ post.excerpt | strip_html | truncatewords: excerpt_length }}
-        {% assign excerpt_word_count = post.excerpt | number_of_words %}
-        {% if post.content != post.excerpt or excerpt_word_count > excerpt_length %}
-          <a href="{{ post.url | absolute_url }}" class="post-read-more">[Read&nbsp;More]</a>
         {% endif %}
       </div>
-      {% endunless %}
 
-      {% if site.feed_show_tags != false and post.tags.size > 0 %}
-      <div class="blog-tags">
-        <span>Tags:</span>
-        <!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
-        <ul class="d-inline list-inline" role="list">
-          {% for tag in post.tags %}
-          <li class="list-inline-item">
-            <a href="{{ '/tags' | absolute_url }}#{{- tag -}}">{{- tag -}}</a>
-          </li>
-          {% endfor %}
-        </ul>
+      {% if site.publications.size > 0 %}
+      {% assign pub_entries = site.publications | sort: 'date' | reverse %}
+      <div class="publications-list">
+        {% for pub in pub_entries %}
+        <article class="pub-item">
+          <div class="pub-year-col">
+            <span class="pub-year">{{ pub.year }}</span>
+            {% if pub.type %}
+            <span class="pub-type-badge">{{ pub.type }}</span>
+            {% endif %}
+          </div>
+
+          <div class="pub-main-col">
+            <h3 class="pub-title">
+              {% if pub.doi %}
+                <a href="{{ pub.doi }}" target="_blank" rel="noopener">{{ pub.title }}</a>
+              {% elsif pub.pdf %}
+                <a href="{{ pub.pdf }}" target="_blank" rel="noopener">{{ pub.title }}</a>
+              {% elsif pub.scholar_url %}
+                <a href="{{ pub.scholar_url }}" target="_blank" rel="noopener">{{ pub.title }}</a>
+              {% else %}
+                {{ pub.title }}
+              {% endif %}
+            </h3>
+
+            {% if pub.authors %}
+            <p class="pub-authors">{{ pub.authors }}</p>
+            {% endif %}
+
+            {% if pub.venue %}
+            <p class="pub-venue">{{ pub.venue }}</p>
+            {% endif %}
+
+            <div class="pub-links">
+              {% if pub.doi %}
+              <a href="{{ pub.doi }}" target="_blank" rel="noopener" class="pub-btn">
+                <i class="fas fa-link" aria-hidden="true"></i>
+                <span>DOI / Paper</span>
+              </a>
+              {% endif %}
+              {% if pub.pdf %}
+              <a href="{{ pub.pdf }}" target="_blank" rel="noopener" class="pub-btn">
+                <i class="far fa-file-pdf" aria-hidden="true"></i>
+                <span>PDF</span>
+              </a>
+              {% endif %}
+              {% if pub.code %}
+              <a href="{{ pub.code }}" target="_blank" rel="noopener" class="pub-btn">
+                <i class="fab fa-github" aria-hidden="true"></i>
+                <span>Code</span>
+              </a>
+              {% endif %}
+              {% if pub.scholar_url and pub.doi == nil %}
+              <a href="{{ pub.scholar_url }}" target="_blank" rel="noopener" class="pub-btn">
+                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                <span>Scholar</span>
+              </a>
+              {% endif %}
+              {% if pub.bibtex %}
+              <button type="button" class="pub-btn bibtex-toggle" data-target="bibtex-{{ forloop.index }}" aria-expanded="false">
+                <i class="fas fa-quote-right" aria-hidden="true"></i>
+                <span>BibTeX</span>
+              </button>
+              {% endif %}
+            </div>
+
+            {% if pub.bibtex %}
+            <div id="bibtex-{{ forloop.index }}" class="bibtex-drawer" hidden>
+              <div class="bibtex-header">
+                <span>BibTeX Citation</span>
+                <button type="button" class="bibtex-copy-btn" data-copy-target="bibtex-code-{{ forloop.index }}">
+                  <i class="far fa-copy" aria-hidden="true"></i>
+                  <span>Copy</span>
+                </button>
+              </div>
+              <pre id="bibtex-code-{{ forloop.index }}"><code>{{ pub.bibtex | strip }}</code></pre>
+            </div>
+            {% endif %}
+          </div>
+        </article>
+        {% endfor %}
       </div>
       {% endif %}
+    </div>
+  </section>
 
-    </article>
-  </li>
-  {% endfor %}
-</ul>
+  <!-- ================= EXPERIENCE & TEACHING SECTION ================= -->
+  <section id="experience" class="portfolio-section">
+    <div class="portfolio-container">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker">Academic &amp; Industry Trajectory</span>
+          <h2 class="section-title">Experience &amp; Teaching</h2>
+        </div>
+      </div>
 
-{% if paginator.total_pages > 1 %}
-<ul class="pagination main-pager">
-  {% if paginator.previous_page %}
-  <li class="page-item previous">
-    <a class="page-link" href="{{ paginator.previous_page_path | absolute_url }}">
-      <i class="fas fa-arrow-left" alt="Newer Posts"></i>
-      <span class="d-none d-sm-inline-block">Newer Posts</span>
-    </a>
-  </li>
-  {% endif %}
-  {% if paginator.next_page %}
-  <li class="page-item next">
-    <a class="page-link" href="{{ paginator.next_page_path | absolute_url }}">
-      <span class="d-none d-sm-inline-block">Older Posts</span>
-      <i class="fas fa-arrow-right" alt="Older Posts"></i>
-    </a>
-  </li>
-  {% endif %}
-</ul>
-{% endif %}
+      {% if site.timeline.size > 0 %}
+      {% assign timeline_entries = site.timeline | sort: 'date' | reverse %}
+      <div class="experience-timeline">
+        {% for entry in timeline_entries %}
+        <article class="exp-card">
+          <div class="exp-logo-col">
+            {% if entry.logo %}
+              <div class="exp-logo-box">
+                <img src="{{ entry.logo | relative_url }}" alt="{{ entry.organization | default: entry.title }} logo" loading="lazy" />
+              </div>
+            {% else %}
+              <div class="exp-logo-box exp-logo-fallback">
+                <i class="fas fa-briefcase" aria-hidden="true"></i>
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="exp-content-col">
+            <div class="exp-header-row">
+              <div>
+                <h3 class="exp-role">
+                  {{ entry.role | default: entry.content | strip_html }}
+                </h3>
+                {% if entry.organization %}
+                <p class="exp-org">
+                  <span class="exp-org-name">{{ entry.organization }}</span>
+                  {% if entry.location %}
+                  <span class="exp-sep">&middot;</span>
+                  <span class="exp-loc">{{ entry.location }}</span>
+                  {% endif %}
+                </p>
+                {% endif %}
+              </div>
+              <span class="exp-when">{{ entry.when }}</span>
+            </div>
+
+            {% if entry.highlights %}
+            <ul class="exp-highlights">
+              {% for item in entry.highlights %}
+              <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+            {% else %}
+            <div class="exp-description">
+              {{ entry.content | markdownify }}
+            </div>
+            {% endif %}
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- ================= EDUCATION, HONORS & SKILLS SECTION ================= -->
+  <section id="education" class="portfolio-section">
+    <div class="portfolio-container">
+      <div class="edu-honors-grid">
+        <!-- Education Column -->
+        <div>
+          <div class="section-header compact-header">
+            <div>
+              <span class="section-kicker">Academic Background</span>
+              <h2 class="section-title">Education</h2>
+            </div>
+          </div>
+
+          <div class="stack-cards">
+            {% for edu in site.data.academics.education %}
+            <div class="info-card">
+              <div class="info-card-header">
+                <h3 class="info-card-title">{{ edu.degree }}</h3>
+                <span class="info-card-period">{{ edu.period }}</span>
+              </div>
+              <p class="info-card-sub">{{ edu.institution }}{% if edu.location %}, {{ edu.location }}{% endif %}</p>
+              {% if edu.department %}
+              <p class="info-card-dept">{{ edu.department }}</p>
+              {% endif %}
+              {% if edu.details != "" %}
+              <p class="info-card-detail">{{ edu.details }}</p>
+              {% endif %}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Honors & Technical Stack Column -->
+        <div>
+          <div class="section-header compact-header">
+            <div>
+              <span class="section-kicker">Recognition</span>
+              <h2 class="section-title">Fellowships &amp; Awards</h2>
+            </div>
+          </div>
+
+          <div class="stack-cards">
+            {% for honor in site.data.academics.honors %}
+            <div class="info-card">
+              <div class="info-card-header">
+                <h3 class="info-card-title">{{ honor.title }}</h3>
+                <span class="info-card-period">{{ honor.year }}</span>
+              </div>
+              <p class="info-card-sub">{{ honor.organization }}</p>
+              {% if honor.description %}
+              <p class="info-card-detail">{{ honor.description }}</p>
+              {% endif %}
+            </div>
+            {% endfor %}
+          </div>
+
+          {% if site.data.academics.skills %}
+          <div class="skills-block">
+            <h3 class="eyebrow-heading skills-heading">Technical Stack</h3>
+            <div class="skills-list">
+              {% for group in site.data.academics.skills %}
+              <div class="skill-row">
+                <span class="skill-category">{{ group.category }}</span>
+                <div class="skill-items">
+                  {% for skill in group.items %}
+                  <span class="skill-badge">{{ skill }}</span>
+                  {% endfor %}
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. Theme Toggle
+    var themeToggleBtn = document.getElementById('theme-toggle');
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', function() {
+        var current = document.documentElement.getAttribute('data-theme') || 'light';
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try {
+          localStorage.setItem('theme', next);
+        } catch (e) {}
+      });
+    }
+
+    // 2. Mobile Navigation Toggle
+    var mobileNavToggle = document.getElementById('mobile-nav-toggle');
+    var siteNav = document.getElementById('site-nav');
+    if (mobileNavToggle && siteNav) {
+      mobileNavToggle.addEventListener('click', function() {
+        var expanded = mobileNavToggle.getAttribute('aria-expanded') === 'true';
+        mobileNavToggle.setAttribute('aria-expanded', String(!expanded));
+        siteNav.classList.toggle('is-open');
+      });
+
+      siteNav.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          mobileNavToggle.setAttribute('aria-expanded', 'false');
+          siteNav.classList.remove('is-open');
+        });
+      });
+    }
+
+    // 3. BibTeX Toggle & Copy
+    document.querySelectorAll('.bibtex-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var targetId = btn.getAttribute('data-target');
+        var drawer = document.getElementById(targetId);
+        if (!drawer) return;
+        var isHidden = drawer.hasAttribute('hidden');
+        if (isHidden) {
+          drawer.removeAttribute('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+          btn.classList.add('active');
+        } else {
+          drawer.setAttribute('hidden', '');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.classList.remove('active');
+        }
+      });
+    });
+
+    document.querySelectorAll('.bibtex-copy-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var targetId = btn.getAttribute('data-copy-target');
+        var pre = document.getElementById(targetId);
+        if (!pre) return;
+        var text = pre.innerText || pre.textContent;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function() {
+            var span = btn.querySelector('span');
+            var orig = span.textContent;
+            span.textContent = 'Copied!';
+            setTimeout(function() {
+              span.textContent = orig;
+            }, 1800);
+          });
+        }
+      });
+    });
+
+    // 4. Scroll-Spy for Section Navigation Links
+    var sections = document.querySelectorAll('.portfolio-section[id]');
+    var navLinks = document.querySelectorAll('.nav-link-minimal[href^="#"]');
+    function updateActiveNav() {
+      var scrollPos = window.scrollY + 140;
+      var currentId = '';
+      sections.forEach(function(sec) {
+        if (sec.offsetTop <= scrollPos) {
+          currentId = sec.getAttribute('id');
+        }
+      });
+      navLinks.forEach(function(link) {
+        if (link.getAttribute('href') === '#' + currentId) {
+          link.classList.add('is-active');
+        } else {
+          link.classList.remove('is-active');
+        }
+      });
+    }
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
+  });
+</script>
